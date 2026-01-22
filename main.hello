@@ -1,0 +1,155 @@
+-- HELLO BY CHATGPT | TOGGLE MENU (NO TEAM)
+
+local Players = game:GetService("Players")
+local UIS = game:GetService("UserInputService")
+local player = Players.LocalPlayer
+local PlayerGui = player:WaitForChild("PlayerGui")
+
+-- ScreenGui
+local gui = Instance.new("ScreenGui")
+gui.Name = "HelloByChatGPT"
+gui.ResetOnSpawn = false
+gui.Parent = PlayerGui
+
+-- Main Menu
+local mainMenu = Instance.new("Frame")
+mainMenu.Size = UDim2.new(0, 420, 0, 280)
+mainMenu.Position = UDim2.new(0.5, -210, 0.5, -140)
+mainMenu.BackgroundColor3 = Color3.fromRGB(20,20,20)
+mainMenu.Visible = false
+mainMenu.Parent = gui
+Instance.new("UICorner", mainMenu).CornerRadius = UDim.new(0,12)
+
+-- Title
+local title = Instance.new("TextLabel")
+title.Size = UDim2.new(1, -20, 0, 40)
+title.Position = UDim2.new(0, 10, 0, 0)
+title.BackgroundTransparency = 1
+title.Text = "HELLO BY CHATGPT"
+title.TextColor3 = Color3.fromRGB(0,255,180)
+title.Font = Enum.Font.GothamBold
+title.TextSize = 18
+title.TextXAlignment = Enum.TextXAlignment.Left
+title.Parent = mainMenu
+
+-- Logo Button (Toggle) - ĐÃ GẮN ẢNH
+local logoBtn = Instance.new("ImageButton")
+logoBtn.Size = UDim2.new(0, 60, 0, 60)
+logoBtn.Position = UDim2.new(1, -70, 0.5, -30)
+logoBtn.BackgroundTransparency = 1
+logoBtn.Image = "https://i.imgur.com/7ZQZ7ZP.png" -- LOGO ĐÃ ĐỔI
+logoBtn.Parent = gui
+Instance.new("UICorner", logoBtn).CornerRadius = UDim.new(1,0)
+
+-- Toggle menu
+logoBtn.MouseButton1Click:Connect(function()
+	mainMenu.Visible = not mainMenu.Visible
+end)
+
+-- Drag logo (mobile + PC)
+local dragging, dragStart, startPos
+logoBtn.InputBegan:Connect(function(input)
+	if input.UserInputType == Enum.UserInputType.MouseButton1
+	or input.UserInputType == Enum.UserInputType.Touch then
+		dragging = true
+		dragStart = input.Position
+		startPos = logoBtn.Position
+	end
+end)
+
+logoBtn.InputEnded:Connect(function(input)
+	if input.UserInputType == Enum.UserInputType.MouseButton1
+	or input.UserInputType == Enum.UserInputType.Touch then
+		dragging = false
+	end
+end)
+
+UIS.InputChanged:Connect(function(input)
+	if dragging and (input.UserInputType == Enum.UserInputType.MouseMovement
+	or input.UserInputType == Enum.UserInputType.Touch) then
+		local delta = input.Position - dragStart
+		logoBtn.Position = UDim2.new(
+			startPos.X.Scale,
+			startPos.X.Offset + delta.X,
+			startPos.Y.Scale,
+			startPos.Y.Offset + delta.Y
+		)
+	end
+end)-- HELLO BY CHATGPT | TOGGLE MENU (NO TEAM)
+
+local Players = game:GetService("Players")
+local UIS = game:GetService("UserInputService")
+local player = Players.LocalPlayer
+local PlayerGui = player:WaitForChild("PlayerGui")
+
+-- ScreenGui
+local gui = Instance.new("ScreenGui")
+gui.Name = "HelloByChatGPT"
+gui.ResetOnSpawn = false
+gui.Parent = PlayerGui
+
+-- Main Menu
+local mainMenu = Instance.new("Frame")
+mainMenu.Size = UDim2.new(0, 420, 0, 280)
+mainMenu.Position = UDim2.new(0.5, -210, 0.5, -140)
+mainMenu.BackgroundColor3 = Color3.fromRGB(20,20,20)
+mainMenu.Visible = false
+mainMenu.Parent = gui
+Instance.new("UICorner", mainMenu).CornerRadius = UDim.new(0,12)
+
+-- Title
+local title = Instance.new("TextLabel")
+title.Size = UDim2.new(1, -20, 0, 40)
+title.Position = UDim2.new(0, 10, 0, 0)
+title.BackgroundTransparency = 1
+title.Text = "HELLO BY CHATGPT"
+title.TextColor3 = Color3.fromRGB(0,255,180)
+title.Font = Enum.Font.GothamBold
+title.TextSize = 18
+title.TextXAlignment = Enum.TextXAlignment.Left
+title.Parent = mainMenu
+
+-- Logo Button (Toggle) - ĐÃ GẮN ẢNH
+local logoBtn = Instance.new("ImageButton")
+logoBtn.Size = UDim2.new(0, 60, 0, 60)
+logoBtn.Position = UDim2.new(1, -70, 0.5, -30)
+logoBtn.BackgroundTransparency = 1
+logoBtn.Image = "https://i.imgur.com/7ZQZ7ZP.png" -- LOGO ĐÃ ĐỔI
+logoBtn.Parent = gui
+Instance.new("UICorner", logoBtn).CornerRadius = UDim.new(1,0)
+
+-- Toggle menu
+logoBtn.MouseButton1Click:Connect(function()
+	mainMenu.Visible = not mainMenu.Visible
+end)
+
+-- Drag logo (mobile + PC)
+local dragging, dragStart, startPos
+logoBtn.InputBegan:Connect(function(input)
+	if input.UserInputType == Enum.UserInputType.MouseButton1
+	or input.UserInputType == Enum.UserInputType.Touch then
+		dragging = true
+		dragStart = input.Position
+		startPos = logoBtn.Position
+	end
+end)
+
+logoBtn.InputEnded:Connect(function(input)
+	if input.UserInputType == Enum.UserInputType.MouseButton1
+	or input.UserInputType == Enum.UserInputType.Touch then
+		dragging = false
+	end
+end)
+
+UIS.InputChanged:Connect(function(input)
+	if dragging and (input.UserInputType == Enum.UserInputType.MouseMovement
+	or input.UserInputType == Enum.UserInputType.Touch) then
+		local delta = input.Position - dragStart
+		logoBtn.Position = UDim2.new(
+			startPos.X.Scale,
+			startPos.X.Offset + delta.X,
+			startPos.Y.Scale,
+			startPos.Y.Offset + delta.Y
+		)
+	end
+end)
